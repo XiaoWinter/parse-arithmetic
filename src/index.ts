@@ -1,6 +1,6 @@
 interface Token {
-  type: string;
-  lexeme: string;
+  type: ExpressBasicType;
+  lexeme: '+' | '-' | '*' | '/';
 }
 
 enum ExpressBasicType {
