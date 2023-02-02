@@ -229,13 +229,18 @@ let testString = "50-12*8/(2-3)/3+(1/1+2*1)*2*3-1";
 // let testString = "50-12*8"; // 50 12 8 * -
 // let testString = "1*2*3";
 
-const token = scaner(testString);
-console.log("token", token);
+const tokens = scaner(testString);
+console.log("tokens", tokens);
 
-const RPN = translateExpress2RPN(token);
-console.log("RPN", RPN);
+try {
+  eval(tokens.map((token) => token.lexeme).join(""));
+  const RPN = translateExpress2RPN(tokens);
+  console.log("RPN", RPN);
 
-const express = RPN.map((i) => i.lexeme);
+  const express = RPN.map((i) => i.lexeme);
 
-const resultStack = evaluateRPN(express);
-console.log("resultStack", resultStack);
+  const resultStack = evaluateRPN(express);
+  console.log("resultStack", resultStack);
+} catch (error) {
+  console.log("表达式错误");
+}
