@@ -20,7 +20,7 @@ interface TOKEN_MAPS {
 const TOKEN_MAPS: TOKEN_MAPS = {
   ALPHABET: {
     type: ExpressBasicType.ALPHABET,
-    pattern: /#{[A-Za-z0-9]*}|[0-9]+/,
+    pattern: /#{([A-Za-z][A-Za-z0-9]*)}|[1-9][0-9]*([\.][0-9]{1,2})?/,
   },
   LEFT_PARENTHESES: {
     type: ExpressBasicType.LEFT_PARENTHESES,
